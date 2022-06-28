@@ -6,8 +6,12 @@ const itemsSchema = new Schema({
   itemDescription: String,
   itemPrice: Number,
   itemImage: String,
-  itemInnerImage: String,
+  itemInnerImage: [{ image: String }],
   itemCategory: String,
   itemQuantity: Number,
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: "Users",
+  },
 });
 module.exports = mongoose.model("items", itemsSchema);
