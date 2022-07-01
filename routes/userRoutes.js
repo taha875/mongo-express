@@ -4,7 +4,7 @@ var router = require("express").Router();
 
 router.post("/create", user.signUp);
 router.post("/login", user.signIn);
-router.post("/users", user.showAll);
-router.post("/userItems/:id", user.showUserItems);
+router.get("/users", user.showAll);
+router.get("/userItems/:id", user.showUserItems);
 
 module.exports = router;

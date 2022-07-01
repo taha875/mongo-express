@@ -84,18 +84,11 @@ module.exports = {
   deleteItemByID: async (req, res) => {
     try {
       console.log(req.params.id);
-
-      // const item = await Items.findByIdAndDelete(req.params.id);
-      // console.log(item);
-      // if (!item) {
-      //   return res.status(400).send({ message: "No Item Available" });
-      // }
-
-      if (User.items) {
-        console.log(User.items,"aaa");
-        
+      const item = await Items.findByIdAndDelete(req.params.id);
+      console.log(item);
+      if (!item) {
+        return res.status(400).send({ message: "No Item Available" });
       }
-
       res.status(200).send({ success: true });
     } catch (error) {
       console.log(error);
